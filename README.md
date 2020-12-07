@@ -118,7 +118,7 @@ fcm.subscribeToTopic([ 'device_token_1', 'device_token_2' ], 'some_topic_name', 
 ### Unsubscribe Device Tokens to Topics
 
 ```js
-var FCM = require('fcm-node');
+var FCM = require('fcm-notify');
 var serverKey = 'YOURSERVERKEYHERE'; //put your server key here
 var fcm = new FCM(serverKey);
 
@@ -129,20 +129,3 @@ fcm.unsubscribeToTopic([ 'device_token_1', 'device_token_2' ], 'some_topic_name'
 });
 
 ```
-
-
-## Changelog
-1.5.2 - fixed bug whre send's callback were called twice - *Thanks to [@cesardmoro][17] for this fix*
-1.3.0 - Added proxy capabilities - *Thanks to [@crackjack][16] for this feature*
-1.2.0 - Added topic subscriptions management for web clients - *Thanks to [@sofiapm][15] for this feature*   
-1.1.0 - Support for the new firebase node.js sdk methods  
-1.0.14 - Added example file to quick tests <br />
-1.0.13 - Added a error response in case of TopicsMessageRateExceeded response <br />
-1.0.12 - Refactored the client removing the Event Emitter's Logic to fix concurrency issues. Using pure callbacks now also avoids memory leak in specific scenarios with lots of parallel calls to <b>send</b> function. <br />
-1.0.11 - \<FIX\> send function returning error objects when multicast messages (or individually targeted) returned both error and success keys on response message (even with error counter = 0 ) <br /> 
-1.0.9 - Updated Documentation <br />
-1.0.8 - \<FIX\> 'icon' field no longer required in notification<br /> 
-1.0.7 - renaming repository<br />
-1.0.6 - bugfix: send function was always returning an error object for multicast messages (multiple registration ids)<br />
-1.0.5 - bugfix with UTF-8 enconding and chunk-encoded transfers<br />
-1.0.1 - forked from fcm-push and extended to accept topic messages without errors<br />
