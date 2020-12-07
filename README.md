@@ -1,6 +1,5 @@
-### Warning: on February 2, 2017, the Firebase Team [released][11] the [_admin.messaging()_][12] service to their node.js admin module. This new service makes this module kind of *deprecated*  
 
-fcm-node [![NPM version](https://badge.fury.io/js/fcm-node.svg)](http://badge.fury.io/js/fcm-node)
+fcm-notify
 ========
 A Node.JS simple interface to Google's Firebase Cloud Messaging (FCM). Supports both android and iOS, including topic messages, and parallel calls.  
 Aditionally it also keeps the callback behavior for the new firebase messaging service. 
@@ -18,7 +17,7 @@ There are 2 ways to use this lib:
    2. Create a _message object_ and call the **send()** function
 #### Classic usage example:
 ```js
-    var FCM = require('fcm-node');
+    var FCM = require('fcm-notify');
     var serverKey = 'YOURSERVERKEYHERE'; //put your server key here
     var fcm = new FCM(serverKey);
 
@@ -54,7 +53,7 @@ There are 2 ways to use this lib:
    
 #### "New" usage example
 ```js
-    var FCM = require('fcm-node')
+    var FCM = require('fcm-notify')
     
     var serverKey = require('path/to/privatekey.json') //put the generated private key path here    
     
@@ -105,7 +104,7 @@ FirebaseMessaging.getInstance().subscribeToTopic("news");
 ### Subscribe Device Tokens to Topics
 
 ```js
-var FCM = require('fcm-node');
+var FCM = require('fcm-notify');
 var serverKey = 'YOURSERVERKEYHERE'; //put your server key here
 var fcm = new FCM(serverKey);
 
@@ -131,37 +130,6 @@ fcm.unsubscribeToTopic([ 'device_token_1', 'device_token_2' ], 'some_topic_name'
 
 ```
 
-## Notes
-* See [FCM documentation][2] for general details.
-* See [Firebase Cloud Messaging HTTP Protocol][10] for details about the HTTP syntax used and JSON fields, notification and data objects. **(STRONGLY RECOMMENDED)**
-* On **iOS**, set **content_available** to **true** to receive data while your app is in background. (As seen in [FCM Docs][8])  
-
-## Credits
-
-Extended by [Leonardo Pereira (me)][3].
-Based on the great work on [fcm-push][7] by [Rasmunandar Rustam][4] cloned and modified from there, which in its turn, was cloned and modified from [Changshin Lee][5]'s [node-gcm][5]
-
-## License
-
-[MIT][6]
-
-[1]: http://github.com/isaacs/npm
-[2]: https://firebase.google.com/docs/cloud-messaging/server
-[3]: https://github.com/jlcvp
-[4]: mailto:nandar.rustam@gmail.com
-[5]: https://github.com/h2soft/node-gcm
-[6]: https://opensource.org/licenses/MIT
-[7]: https://github.com/nandarustam/fcm-push
-[8]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[9]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/APNsProviderAPI.html#//apple_ref/doc/uid/TP40008194-CH101-SW2
-[10]: https://firebase.google.com/docs/cloud-messaging/http-server-ref
-[11]: https://firebase.google.com/support/release-notes/admin/node
-[12]: https://firebase.google.com/docs/reference/admin/node/admin.messaging
-[13]: https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk
-[14]: https://developers.google.com/instance-id/reference/server#create_relationship_maps_for_app_instances
-[15]: https://github.com/sofiapm
-[16]: https://github.com/crackjack
-[17]: https://github.com/cesardmoro
 
 ## Changelog
 1.5.2 - fixed bug whre send's callback were called twice - *Thanks to [@cesardmoro][17] for this fix*
