@@ -8,7 +8,7 @@ Aditionally it also keeps the callback behavior for the new firebase messaging s
 
 Via [npm][1]:
 
-    $ npm install fcm-node
+    $ npm install fcm-notify
 
 ## Usage
 
